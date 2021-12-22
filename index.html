@@ -32,6 +32,21 @@
 			$('#' + toHide).hide();
 			$('#' + toShow).show();
 		}
+
+		function checkAnswers() {
+		// document.$formName.$inputName
+		  input_answer = document.f1.inputAnswer.value
+		  if (input_answer.length == 0) {
+		    alert("You must enter an answer to continue...");
+		    return false;
+		  }
+		  if (input_answer == "snowflake") {
+		    hideMe('guess', 'game_two');
+		  } else {
+		    alert("You could die out here. Maybe try a little harder??");
+		  }
+
+		}
 	</script>
 </head>
 <body>
@@ -238,9 +253,33 @@
 		  <div id='story15' onclick="hideMe('story15', 'story16')" hidden>
 		  		<h1>You look around for some idea of what to do next...</h1>
 		  </div>
-		  <div id='story16' onclick="hideMe('story16', 'story17')" hidden>
-		  		<h1>You look around for some idea of what to do next...</h1>
+		  <div id='story16' onclick="hideMe('story16', 'riddle')" hidden>
+		  		<h1>Towards the bottom of the pole, you see etched letters...</h1>
 		  </div>
+		  <div id='riddle' onclick="hideMe('riddle', 'riddle2')" hidden>
+		  		<h1>"It can fall for miles without breaking."</h1>
+		  </div>
+		  <div id='riddle2' onclick="hideMe('riddle2', 'riddle3')" hidden>
+		  		<h1>"Alone it is delicate; with many it makes a weapon."</h1>
+		  </div>
+		  <div id='riddle3' onclick="hideMe('riddle3', 'riddle4')" hidden>
+		  		<h1>"Too much could be deadly."</h1>
+		  </div>
+		  <div id='riddle4' onclick="hideMe('riddle4', 'guess')" hidden>
+		  		<h1>"What is it?"</h1>
+		  </div>
+		  <div id='guess' hidden>
+		  	<center>
+		  		<form name="f1">
+  					<input name="inputAnswer" size="20" placeholder="your guess here" onkeypress="return event.keyCode != 13;">
+  					<input type="button" value="Check" onClick="checkAnswers()">
+				</form>
+			</center>
+				<h1 onclick="hideMe('guess', 'riddle')">Or read the riddle again?</h1>
+		  </div>
+		</div>
+		<div id='game_two' onclick="hideMe('game_two', 'guess')" hidden>
+			Well howdy doodily!
 		</div>
 	</div>
 </body>
