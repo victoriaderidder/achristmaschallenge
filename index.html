@@ -106,14 +106,14 @@
 	  	  <div id='story3' onclick="hideMe('story3', 'story4')" hidden>
 	  	  	<h1>To your right, you think you see a light in the distance.</h1>
 	  	  </div>
-	  	  <div id='story4' onclick="hideMe('story4', 'beginning')" hidden>
+	  	  <div id='story4' onclick="hideMe('story4', '1_beginning')" hidden>
 	  	  	<h1>To your left, you can just barely make out a shape.</h1>
 	  	  </div>
-		  <div id='beginning' hidden>
-		  	<div id='1_right1' onclick="hideMe('beginning', 'lost1')" class='inline'>
+		  <div id='1_beginning' hidden>
+		  	<div id='1_right1' onclick="hideMe('1_beginning', 'lost1')" class='inline'>
 		  		<h1>Right?</h1>
 		  	</div>
-		  	 <div id='1_left1' onclick="hideMe('beginning', 'correct1')" class='inline'>
+		  	 <div id='1_left1' onclick="hideMe('1_beginning', 'correct1')" class='inline'>
 		  		<h1>Or left?</h1>
 		  	</div>
 		  </div>
@@ -186,8 +186,60 @@
 		  	<div id='lost23' onclick="hideMe('lost23', 'story')" hidden>
 		  		<h1>Care to try again?</h1>
 		  	</div>
-		  <div id='correct1' hidden>
-		  		<h1>I chose left</h1>
+		  <div id='correct1' onclick="hideMe('correct1', 'story5')" hidden>
+		  		<h1>You're approaching the object...maybe a lamp post of some kind?</h1>
+		  </div>
+		  <div id='story5' onclick="hideMe('story5', '1_middle')" hidden>
+		  		<h1>Still, though, that light dances tantalizingly to your right...</h1>
+		  </div>
+		  <div id='1_middle' hidden>
+		  	<div id='1_right2' onclick="hideMe('1_middle', 'lost1')" class='inline'>
+		  		<h1>Right?</h1>
+		  	</div>
+		  	 <div id='1_left2' onclick="hideMe('1_middle', 'story6')" class='inline'>
+		  		<h1>Or left?</h1>
+		  	</div>
+		  </div>
+		  <div id='story6' onclick="hideMe('story6', 'story7')" hidden>
+		  		<h1>The snow is really coming down now.</h1>
+		  </div>
+		  <div id='story7' onclick="hideMe('story7', 'story8')" hidden>
+		  		<h1>You can barely see the tip of your nose and might have gotten a bit turned around.</h1>
+		  </div>
+		  <div id='story8' onclick="hideMe('story8', '1_end')" hidden>
+		  		<h1>You can't see anything in either direction...</h1>
+		  </div>
+		  <div id='1_end' hidden>
+		  	<div id='1_right2' onclick="hideMe('1_end', 'story9')" class='inline'>
+		  		<h1>Right?</h1>
+		  	</div>
+		  	 <div id='1_left2' onclick="hideMe('1_end', 'lost1')" class='inline'>
+		  		<h1>Or left?</h1>
+		  	</div>
+		  </div>
+		  <div id='story9' onclick="hideMe('story9', 'story10')" hidden>
+		  		<h1>You reach out, grasping wildly.</h1>
+		  </div>
+		  <div id='story10' onclick="hideMe('story10', 'story11')" hidden>
+		  		<h1>Your hand hits something solid, and suddenly, the snow clears!</h1>
+		  </div>
+		  <div id='story11' onclick="hideMe('story11', 'story12')" hidden>
+		  		<h1>You're touching a candycane-striped post that seems to stretch to the sky.</h1>
+		  </div>
+		  <div id='story12' onclick="hideMe('story12', 'story13')" hidden>
+		  		<h1>You try moving your hand away, but the snow instantly blinds you.</h1>
+		  </div>
+		  <div id='story13' onclick="hideMe('story13', 'story14')" hidden>
+		  		<h1>Better keep touching it...</h1>
+		  </div>
+		  <div id='story14' onclick="hideMe('story14', 'story15')" hidden>
+		  		<h1>Could this really be the North Pole?</h1>
+		  </div>
+		  <div id='story15' onclick="hideMe('story15', 'story16')" hidden>
+		  		<h1>You look around for some idea of what to do next...</h1>
+		  </div>
+		  <div id='story16' onclick="hideMe('story16', 'story17')" hidden>
+		  		<h1>You look around for some idea of what to do next...</h1>
 		  </div>
 		</div>
 	</div>
