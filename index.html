@@ -1,18 +1,195 @@
-<style>
-.content {
-  position: fixed;
-  left: 50%;
-  top: 50%;
-  margin-top: -50px;
-  margin-left: -100px;
-}
-</style>
+<head>
+	<title>Merry Christmas!</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<style>
+		.snowflake {
+		  color: #fff;
+		  font-size: 1em;
+		  font-family: Arial, sans-serif;
+
+		}
+
+	@-webkit-keyframes snowflakes-fall{0%{top:-10%}100%{top:100%}}@-webkit-keyframes snowflakes-shake{0%,100%{-webkit-transform:translateX(0);transform:translateX(0)}50%{-webkit-transform:translateX(80px);transform:translateX(80px)}}@keyframes snowflakes-fall{0%{top:-10%}100%{top:100%}}@keyframes snowflakes-shake{0%,100%{transform:translateX(0)}50%{transform:translateX(80px)}}.snowflake{position:fixed;top:-10%;z-index:9999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;cursor:default;-webkit-animation-name:snowflakes-fall,snowflakes-shake;-webkit-animation-duration:10s,3s;-webkit-animation-timing-function:linear,ease-in-out;-webkit-animation-iteration-count:infinite,infinite;-webkit-animation-play-state:running,running;animation-name:snowflakes-fall,snowflakes-shake;animation-duration:10s,3s;animation-timing-function:linear,ease-in-out;animation-iteration-count:infinite,infinite;animation-play-state:running,running}.snowflake:nth-of-type(0){left:1%;-webkit-animation-delay:0s,0s;animation-delay:0s,0s}.snowflake:nth-of-type(1){left:10%;-webkit-animation-delay:1s,1s;animation-delay:1s,1s}.snowflake:nth-of-type(2){left:20%;-webkit-animation-delay:6s,.5s;animation-delay:6s,.5s}.snowflake:nth-of-type(3){left:30%;-webkit-animation-delay:4s,2s;animation-delay:4s,2s}.snowflake:nth-of-type(4){left:40%;-webkit-animation-delay:2s,2s;animation-delay:2s,2s}.snowflake:nth-of-type(5){left:50%;-webkit-animation-delay:8s,3s;animation-delay:8s,3s}.snowflake:nth-of-type(6){left:60%;-webkit-animation-delay:6s,2s;animation-delay:6s,2s}.snowflake:nth-of-type(7){left:70%;-webkit-animation-delay:2.5s,1s;animation-delay:2.5s,1s}.snowflake:nth-of-type(8){left:80%;-webkit-animation-delay:1s,0s;animation-delay:1s,0s}.snowflake:nth-of-type(9){left:90%;-webkit-animation-delay:3s,1.5s;animation-delay:3s,1.5s}.snowflake:nth-of-type(10){left:25%;-webkit-animation-delay:2s,0s;animation-delay:2s,0s}.snowflake:nth-of-type(11){left:65%;-webkit-animation-delay:4s,2.5s;animation-delay:4s,2.5s}
+
+		.content {
+			display: flex;
+			justify-content: center;
+			margin-top: 20%;
+		}
+
+		.inline {
+    		display: inline-block;
+		}
+		h1 {color: white;}
+		body {background-color: #C30F16;}
+	</style>
+	<script>
+		function playAudio(url) {
+		  	new Audio(url).play();
+		}
+
+		function hideMe(toHide, toShow) {
+			$('#' + toHide).hide();
+			$('#' + toShow).show();
+		}
+	</script>
+</head>
 <body>
-
-<div class="content">
-  <b><font size="+22">hello, lizzy.<p>&emsp;&ensp;<a href="page2.html">==></a></font></b>
-
-</div>
-
+	<div class="snowflakes" aria-hidden="true">
+	  <div class="snowflake">
+	  ❅
+	  </div>
+	  <div class="snowflake">
+	  ❆
+	  </div>
+	  <div class="snowflake">
+	  ❅
+	  </div>
+	  <div class="snowflake">
+	  ❆
+	  </div>
+	  <div class="snowflake">
+	  ❅
+	  </div>
+	  <div class="snowflake">
+	  ❆
+	  </div>
+	  <div class="snowflake">
+	    ❅
+	  </div>
+	  <div class="snowflake">
+	    ❆
+	  </div>
+	  <div class="snowflake">
+	    ❅
+	  </div>
+	  <div class="snowflake">
+	    ❆
+	  </div>
+	  <div class="snowflake">
+	    ❅
+	  </div>
+	  <div class="snowflake">
+	    ❆
+	  </div>
+	</div>
+	<div class="content">
+	  <img id="first" src="https://www.pngitem.com/pimgs/m/208-2087614_green-transparent-play-button-hd-png-download.png" onclick="playAudio('assets/music.mp3'); hideMe('first', 'second'); this.onclick=null;" style="max-height: 100px">
+	  <div id='second' onclick="hideMe('second', 'third')" hidden>
+	  	<h1>Welcome, dearest sister, to another Christmas Challenge!</h1>
+	  </div>
+	  <div id='third' onclick="hideMe('third', 'fourth')" hidden>
+	  	<h1>As per usual, the road to your gift may be a perilous journey.</h1>
+	  </div>
+	  <div id='fourth' onclick="hideMe('fourth', 'fifth')" hidden>
+	  	<h1>It will be fraught with monsters, obstacles, pitfalls...and clicking.</h1>
+	  </div>
+	  <div id='fifth' onclick="hideMe('fifth', 'sixth')" hidden>
+	  	<h1>Mostly clicking.</h1>
+	  </div>
+	  <div id='sixth' onclick="hideMe('sixth', 'seventh')" hidden>
+	  	<h1>Well? What are you waiting for?!</h1>
+	  </div>
+	  <div id='seventh' onclick="hideMe('seventh', 'game_one')" hidden>
+	  	<h1>Let's get started.</h1>
+	  </div>
+	  <div id='game_one' hidden>
+	  	  <div id='story' onclick="hideMe('story', 'story1')">
+	  	  	<h1>You are alone in the North Pole.</h1>
+	  	  </div>
+	  	  <div id='story1' onclick="hideMe('story1', 'story2')" hidden>
+	  	  	<h1>Santa has a gift for you, but you can't find his workshop...</h1>
+	  	  </div>
+	  	  <div id='story2' onclick="hideMe('story2', 'story3')" hidden>
+	  	  	<h1>It's freezing, and the snow is really starting to come down.</h1>
+	  	  </div>
+	  	  <div id='story3' onclick="hideMe('story3', 'story4')" hidden>
+	  	  	<h1>To your right, you think you see a light in the distance.</h1>
+	  	  </div>
+	  	  <div id='story4' onclick="hideMe('story4', 'beginning')" hidden>
+	  	  	<h1>To your left, you can just barely make out a shape.</h1>
+	  	  </div>
+		  <div id='beginning' hidden>
+		  	<div id='1_right1' onclick="hideMe('beginning', 'lost1')" class='inline'>
+		  		<h1>Right?</h1>
+		  	</div>
+		  	 <div id='1_left1' onclick="hideMe('beginning', 'correct1')" class='inline'>
+		  		<h1>Or left?</h1>
+		  	</div>
+		  </div>
+		  	<div id='lost1' onclick="hideMe('lost1', 'lost2')" hidden>
+		  		<h1>You walk to the right...</h1>
+		  	</div>
+		  	<div id='lost2' onclick="hideMe('lost2', 'lost3')" hidden>
+		  		<h1>Will you go right? Or left?</h1>
+		  	</div>
+		  	<div id='lost3' onclick="hideMe('lost3', 'lost4')" hidden>
+		  		<h1>And again: right? Or left?</h1>
+		  	</div>
+		  	<div id='lost4' onclick="hideMe('lost4', 'lost5')" hidden>
+		  		<h1>You think you might see something in the distance...</h1>
+		  	</div>
+		  	<div id='lost5' onclick="hideMe('lost5', 'lost6')" hidden>
+		  		<h1>Right? Or left?</h1>
+		  	</div>
+		  	<div id='lost6' onclick="hideMe('lost6', 'lost7')" hidden>
+		  		<h1>Yes! You do see something! It's glinting red...</h1>
+		  	</div>
+		  	<div id='lost7' onclick="hideMe('lost7', 'lost8')" hidden>
+		  		<h1>Right? Or left?</h1>
+		  	</div>
+		  	<div id='lost8' onclick="hideMe('lost8', 'lost9')" hidden>
+		  		<h1>You're getting closer...but is it getting closer too...?</h1>
+		  	</div>
+		  	<div id='lost9' onclick="hideMe('lost9', 'lost10')" hidden>
+		  		<h1>It's probably just a trick of the light...</h1>
+		  	</div>
+		  	<div id='lost10' onclick="hideMe('lost10', 'lost11')" hidden>
+		  		<h1>Right? Or left?</h1>
+		  	</div>
+		  	<div id='lost11' onclick="hideMe('lost11', 'lost12')" hidden>
+		  		<h1>You start to turn, but the glint of red is so close!</h1>
+		  	</div>
+		  	<div id='lost12' onclick="hideMe('lost12', 'lost13')" hidden>
+		  		<h1>And you can almost make out...antlers???</h1>
+		  	</div>
+		  	<div id='lost13' onclick="hideMe('lost13', 'lost14')" hidden>
+		  		<h1>You take a chance:</h1>
+		  	</div>
+		  	<div id='lost14' onclick="hideMe('lost14', 'lost15')" hidden>
+		  		<h1>"Rudolph?" you call out.</h1>
+		  	</div>
+		  	<div id='lost15' onclick="hideMe('lost15', 'lost16')" hidden>
+		  		<h1>The figure turns slowly.</h1>
+		  	</div>
+		  	<div id='lost16' onclick="hideMe('lost16', 'lost17')" hidden>
+		  		<h1>It rushes towards you!!!</h1>
+		  	</div>
+		  	<div id='lost17' onclick="hideMe('lost17', 'lost18')" hidden>
+		  		<h1>You stand, frozen in fear...</h1>
+		  	</div>
+		  	<div id='lost18' onclick="hideMe('lost18', 'lost19')" hidden>
+		  		<h1>But it is Rudolph! His signature red nose lights the way.</h1>
+		  	</div>
+		  	<div id='lost19' onclick="hideMe('lost19', 'lost20')" hidden>
+		  		<h1>He lowers his head as he barrels towards you...</h1>
+		  	</div>
+		  	<div id='lost20' onclick="hideMe('lost20', 'lost21')" hidden>
+		  		<h1>Rudolph, with his nose so bright, gores you on this Christmas night!</h1>
+		  	</div>
+		  	<div id='lost21' onclick="hideMe('lost21', 'lost22')" hidden>
+		  		<h1>You have just enough time to wonder what could have caused this...</h1>
+		  	</div>
+		  	<div id='lost22' onclick="hideMe('lost22', 'lost23')" hidden>
+		  		<h1>Before you bleed out.</h1>
+		  	</div>
+		  	<div id='lost23' onclick="hideMe('lost23', 'story')" hidden>
+		  		<h1>Care to try again?</h1>
+		  	</div>
+		  <div id='correct1' hidden>
+		  		<h1>I chose left</h1>
+		  </div>
+		</div>
+	</div>
 </body>
 
