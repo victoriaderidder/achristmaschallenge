@@ -17,6 +17,17 @@
 			margin-top: 20%;
 		}
 
+		#captchaimg {
+			margin-top: 10%;
+			position: relative;
+			z-index:-5;
+		}
+
+		#guessbox {
+			margin-top: -6.2%;
+			margin-right: 31.9%;
+		}
+
 		.inline {
     		display: inline-block;
 		}
@@ -34,18 +45,34 @@
 		}
 
 		function checkAnswers() {
-		// document.$formName.$inputName
 		  input_answer = document.f1.inputAnswer.value
 		  if (input_answer.length == 0) {
 		    alert("You must enter an answer to continue...");
 		    return false;
 		  }
-		  if (input_answer == "snowflake") {
+		  if (input_answer.toLowerCase() == "snow") {
+		  	alert("Ah...but can snow ever truly be alone?");
+		  } else if (input_answer.toLowerCase() == "snowflake") {
 		    hideMe('guess', 'game_two');
 		  } else {
 		    alert("You could die out here. Maybe try a little harder??");
 		  }
+		}
 
+		function checkAnswers2() {
+		  input_answer = document.f2.inputAnswer.value
+		  if (input_answer.length == 0) {
+		    alert("You must enter an answer to continue...");
+		    return false;
+		  }
+		  if (input_answer.toLowerCase() == "noel") {
+		    hideMe('guess2', 'game_three');
+		  } else if (input_answer == "ABCDEFGHIJKMNO PQRSTUVWXYZ" || input_answer == "ABCDEFGHIJKMNOPQRSTUVWXYZ"
+		  	|| input_answer == "ABCDEFGHIJKLMNOPQRSTUVWXYZ" || input_answer == "ABCDEFGHIJKLMNO PQRSTUVWXYZ") {
+		  	alert('"Um," the elf says dubiously. "Don\'t you think that\'s a little literal?"')
+		  } else {
+		    alert('"ARE YOU SURE YOU\'RE HUMAN?!?!?!?" the elf screams angrily.');
+		  }
 		}
 	</script>
 </head>
@@ -88,27 +115,36 @@
 	    ❆
 	  </div>
 	</div>
+	<div id='guess2' hidden>
+		<center>
+			<img src='assets/captcha.png' style="max-height: 300px" id='captchaimg'><p>
+			<form name="f2" autocomplete="off" id="guessbox">
+	  			<input name="inputAnswer" placeholder="your guess here" onkeypress="return event.keyCode != 13;">
+	  			<input type="button" value="Check" onClick="checkAnswers2()">
+			</form>
+		</center>
+	</div>
 	<div class="content">
-	  <img id="first" src="https://www.pngitem.com/pimgs/m/208-2087614_green-transparent-play-button-hd-png-download.png" onclick="playAudio('assets/music.mp3'); hideMe('first', 'second'); this.onclick=null;" style="max-height: 100px">
-	  <div id='second' onclick="hideMe('second', 'third')" hidden>
-	  	<h1>Welcome, dearest sister, to another Christmas Challenge!</h1>
-	  </div>
-	  <div id='third' onclick="hideMe('third', 'fourth')" hidden>
-	  	<h1>As per usual, the road to your gift may be a perilous journey.</h1>
-	  </div>
-	  <div id='fourth' onclick="hideMe('fourth', 'fifth')" hidden>
-	  	<h1>It will be fraught with monsters, obstacles, pitfalls...and clicking.</h1>
-	  </div>
-	  <div id='fifth' onclick="hideMe('fifth', 'sixth')" hidden>
-	  	<h1>Mostly clicking.</h1>
-	  </div>
-	  <div id='sixth' onclick="hideMe('sixth', 'seventh')" hidden>
-	  	<h1>Well? What are you waiting for?!</h1>
-	  </div>
-	  <div id='seventh' onclick="hideMe('seventh', 'game_one')" hidden>
+	  	<img id="first" src="https://www.pngitem.com/pimgs/m/208-2087614_green-transparent-play-button-hd-png-download.png" onclick="playAudio('assets/music.mp3'); hideMe('first', 'second'); this.onclick=null;" style="max-height: 100px">
+	  	<div id='second' onclick="hideMe('second', 'third')" hidden>
+	  		<h1>Welcome, dearest sister, to another Christmas Challenge!</h1>
+	  	</div>
+	  	<div id='third' onclick="hideMe('third', 'fourth')" hidden>
+	  		<h1>As per usual, the road to your gift may be a perilous journey.</h1>
+	  	</div>
+	  	<div id='fourth' onclick="hideMe('fourth', 'fifth')" hidden>
+	  		<h1>It will be fraught with monsters, obstacles, pitfalls...and clicking.</h1>
+	  	</div>
+	  	<div id='fifth' onclick="hideMe('fifth', 'sixth')" hidden>
+	  		<h1>Mostly clicking.</h1>
+	  	</div>
+	  	<div id='sixth' onclick="hideMe('sixth', 'seventh')" hidden>
+	  		<h1>Well? What are you waiting for?!</h1>
+	 	</div>
+	  	<div id='seventh' onclick="hideMe('seventh', 'game_one')" hidden>
 	  	<h1>Let's get started.</h1>
-	  </div>
-	  <div id='game_one' hidden>
+	  	</div>
+	  	<div id='game_one' hidden>
 	  	  <div id='story' onclick="hideMe('story', 'story1')">
 	  	  	<h1>You are alone in the North Pole.</h1>
 	  	  </div>
@@ -126,32 +162,35 @@
 	  	  </div>
 		  <div id='1_beginning' hidden>
 		  	<div id='1_right1' onclick="hideMe('1_beginning', 'lost1')" class='inline'>
-		  		<h1>Right?</h1>
+		  		<h1><u>Right?</u></h1>
 		  	</div>
 		  	 <div id='1_left1' onclick="hideMe('1_beginning', 'correct1')" class='inline'>
-		  		<h1>Or left?</h1>
+		  		<h1><u>Or left?</u></h1>
 		  	</div>
 		  </div>
 		  	<div id='lost1' onclick="hideMe('lost1', 'lost2')" hidden>
 		  		<h1>You walk to the right...</h1>
 		  	</div>
+		  	<div id='lost0' onclick="hideMe('lost0', 'lost2')" hidden>
+		  		<h1>You walk to the left...</h1>
+		  	</div>
 		  	<div id='lost2' onclick="hideMe('lost2', 'lost3')" hidden>
-		  		<h1>Will you go right? Or left?</h1>
+		  		<h1>Will you go <u>right?</u> <u>Or left?</u></h1>
 		  	</div>
 		  	<div id='lost3' onclick="hideMe('lost3', 'lost4')" hidden>
-		  		<h1>And again: right? Or left?</h1>
+		  		<h1>And again: <u>Right?</u> <u>Or left?</u></h1>
 		  	</div>
 		  	<div id='lost4' onclick="hideMe('lost4', 'lost5')" hidden>
 		  		<h1>You think you might see something in the distance...</h1>
 		  	</div>
 		  	<div id='lost5' onclick="hideMe('lost5', 'lost6')" hidden>
-		  		<h1>Right? Or left?</h1>
+		  		<h1><u>Right?</u> <u>Or left?</u></h1>
 		  	</div>
 		  	<div id='lost6' onclick="hideMe('lost6', 'lost7')" hidden>
 		  		<h1>Yes! You do see something! It's glinting red...</h1>
 		  	</div>
 		  	<div id='lost7' onclick="hideMe('lost7', 'lost8')" hidden>
-		  		<h1>Right? Or left?</h1>
+		  		<h1><u>Right?</u> <u>Or left?</u></h1>
 		  	</div>
 		  	<div id='lost8' onclick="hideMe('lost8', 'lost9')" hidden>
 		  		<h1>You're getting closer...but is it getting closer too...?</h1>
@@ -160,7 +199,7 @@
 		  		<h1>It's probably just a trick of the light...</h1>
 		  	</div>
 		  	<div id='lost10' onclick="hideMe('lost10', 'lost11')" hidden>
-		  		<h1>Right? Or left?</h1>
+		  		<h1><u>Right?</u> <u>Or left?</u></h1>
 		  	</div>
 		  	<div id='lost11' onclick="hideMe('lost11', 'lost12')" hidden>
 		  		<h1>You start to turn, but the glint of red is so close!</h1>
@@ -209,10 +248,10 @@
 		  </div>
 		  <div id='1_middle' hidden>
 		  	<div id='1_right2' onclick="hideMe('1_middle', 'lost1')" class='inline'>
-		  		<h1>Right?</h1>
+		  		<h1><u>Right?</u></h1>
 		  	</div>
 		  	 <div id='1_left2' onclick="hideMe('1_middle', 'story6')" class='inline'>
-		  		<h1>Or left?</h1>
+		  		<h1><u>Or left?</u></h1>
 		  	</div>
 		  </div>
 		  <div id='story6' onclick="hideMe('story6', 'story7')" hidden>
@@ -226,10 +265,10 @@
 		  </div>
 		  <div id='1_end' hidden>
 		  	<div id='1_right2' onclick="hideMe('1_end', 'story9')" class='inline'>
-		  		<h1>Right?</h1>
+		  		<h1><u>Right?</u></h1>
 		  	</div>
-		  	 <div id='1_left2' onclick="hideMe('1_end', 'lost1')" class='inline'>
-		  		<h1>Or left?</h1>
+		  	 <div id='1_left2' onclick="hideMe('1_end', 'lost0')" class='inline'>
+		  		<h1><u>Or left?</u></h1>
 		  	</div>
 		  </div>
 		  <div id='story9' onclick="hideMe('story9', 'story10')" hidden>
@@ -245,7 +284,7 @@
 		  		<h1>You try moving your hand away, but the snow instantly blinds you.</h1>
 		  </div>
 		  <div id='story13' onclick="hideMe('story13', 'story14')" hidden>
-		  		<h1>Better keep touching it...</h1>
+		  		<h1>(Better keep touching it.)</h1>
 		  </div>
 		  <div id='story14' onclick="hideMe('story14', 'story15')" hidden>
 		  		<h1>Could this really be the North Pole?</h1>
@@ -257,20 +296,17 @@
 		  		<h1>Towards the bottom of the pole, you see etched letters...</h1>
 		  </div>
 		  <div id='riddle' onclick="hideMe('riddle', 'riddle2')" hidden>
-		  		<h1>"It can fall for miles without breaking."</h1>
+		  		<h1>"Delicate alone."</h1>
 		  </div>
 		  <div id='riddle2' onclick="hideMe('riddle2', 'riddle3')" hidden>
-		  		<h1>"Alone it is delicate; with many it makes a weapon."</h1>
+		  		<h1>"Deadly together."</h1>
 		  </div>
-		  <div id='riddle3' onclick="hideMe('riddle3', 'riddle4')" hidden>
-		  		<h1>"Too much could be deadly."</h1>
-		  </div>
-		  <div id='riddle4' onclick="hideMe('riddle4', 'guess')" hidden>
+		  <div id='riddle3' onclick="hideMe('riddle3', 'guess')" hidden>
 		  		<h1>"What is it?"</h1>
 		  </div>
 		  <div id='guess' hidden>
 		  	<center>
-		  		<form name="f1">
+		  		<form name="f1" autocomplete="off">
   					<input name="inputAnswer" size="20" placeholder="your guess here" onkeypress="return event.keyCode != 13;">
   					<input type="button" value="Check" onClick="checkAnswers()">
 				</form>
@@ -278,8 +314,85 @@
 				<h1 onclick="hideMe('guess', 'riddle')">Or read the riddle again?</h1>
 		  </div>
 		</div>
-		<div id='game_two' onclick="hideMe('game_two', 'guess')" hidden>
-			Well howdy doodily!
+		<div id='game_two' hidden>
+			<div id='story17' onclick="hideMe('story17', 'story18')">
+				<h1><i>"Snowflake,"</i> you murmur.</h1>
+			</div>
+			<div id='story18' onclick="hideMe('story18', 'story19')" hidden>
+				<h1>You hear a loud rumbling noise, like thunder...</h1>
+			</div>
+			<div id='story19' onclick="hideMe('story19', 'story20')" hidden>
+				<h1>The ground under your feet gives way!</h1>
+			</div>
+			<div id='story20' onclick="hideMe('story20', 'story21')" hidden>
+				<h1>You cling to the North Pole for dear life as you fall!</h1>
+			</div>
+			<div id='story21' onclick="hideMe('story21', 'story22')" hidden>
+				<h1>After what seems like an eternity, you gently touch the ground.</h1>
+			</div>
+			<div id='story22' onclick="hideMe('story22', 'story23')" hidden>
+				<h1>It's pitch black. You reach out and feel a light switch.</h1>
+			</div>
+			<div id='story23' onclick="hideMe('story23', 'story24')" hidden>
+				<h1>You flip it on. Santa's workshop is bathed in light!</h1>
+			</div>
+			<div id='story24' onclick="hideMe('story24', 'story25')" hidden>
+				<h1>It's'completely trashed and also appears to be deserted.</h1>
+			</div>
+			<div id='story25' hidden>
+				<div id='helpplz' onclick="hideMe('story25', 'helpplz3')" class='inline'>
+		  			<h1><u>See if anybody's around?</u> | </h1>
+		  		</div>
+		  	 	<div id='lonermode' onclick="hideMe('story25', 'lonermode3')" class='inline'>
+		  			<h1><u>Or move silently ahead?</u></h1>
+		  		</div>
+			</div>
+			<div id='lonermode3' onclick="hideMe('lonermode3', 'lonermode2')" hidden>
+				<h1>You slowly move into the workshop.</h1>
+			</div>
+			<div id='lonermode2' onclick="hideMe('lonermode2', 'story26')" hidden>
+				<h1>You accidentally trip over a broken toy, making a loud noise.</h1>
+			</div>
+			<div id='helpplz3' onclick="hideMe('helpplz3', 'helpplz2')" hidden>
+				<h1>"Hello?" you call out softly.</h1>
+			</div>
+			<div id='helpplz2' onclick="hideMe('helpplz2', 'story26')" hidden>
+				<h1>There's no response, so you slowly move into the workshop.</h1>
+			</div>
+			<div id='story26' onclick="hideMe('story26', 'story27')" hidden>
+				<h1>You see a flash of movement out of the corner of your eye.</h1>
+			</div>
+			<div id='story27' onclick="hideMe('story27', 'story28')" hidden>
+				<h1>You carefully approach...</h1>
+			</div>
+			<div id='story28' onclick="hideMe('story28', 'story29')" hidden>
+				<h1>"Please don't hurt me!" the elf whimpers, hands over his face.</h1>
+			</div>
+			<div id='story29' onclick="hideMe('story29', 'story30')" hidden>
+				<h1>"Relax, I won't hurt you," you say.</h1>
+			</div>
+			<div id='story30' onclick="hideMe('story30', 'story31')" hidden>
+				<h1>"Oh, thank you," the elf says gratefully.</h1>
+			</div>
+			<div id='story31' onclick="hideMe('story31', 'story32')" hidden>
+				<h1>Then his eyes narrow.</h1>
+			</div>
+			<div id='story32' onclick="hideMe('story32', 'story33')" hidden>
+				<h1>"Wait...how do I know you're not with <i>him?</i>"</h1>
+			</div>
+			<div id='story33' onclick="hideMe('story33', 'story34')" hidden>
+				<h1>"I'm not," you protest. "I mean, who even is he -- ?"</h1>
+			</div>
+			<div id='story34' onclick="hideMe('story34', 'story35')" hidden>
+				<h1>The elf shoves his iPad in your face.</h1>
+			</div>
+			<div id='story35' onclick="hideMe('story35', 'guess2')" hidden>
+				<h1>"I won't tell you anything unless you can solve THIS!" he declares.</h1>
+			</div>
+		  </div>
+		  <div id="game_three" hidden>
+		  	<h1>yay</h1>
+		  </div>
 		</div>
 	</div>
 </body>
