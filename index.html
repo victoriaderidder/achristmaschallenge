@@ -64,6 +64,10 @@
 			}
 		}
 
+		function checkAnswersLol() {
+ 			alert('Um...this question is kinda weird. I don\'t think you can answer it.')
+		}
+
 		function checkAnswers2() {
 			input_answer = document.f2.inputAnswer.value;
 			if (input_answer.length == 0) {
@@ -597,7 +601,7 @@
 				<center>
 					<form name="noform" autocomplete="off">
 						<input name="inputAnswer" size="20" placeholder="your guess here" onkeypress="return event.keyCode != 13;">
-						<input type="button" value="Check">
+						<input type="button" value="Check" onClick="checkAnswersLol()">
 					</form>
 					<h1 onclick="hideMe('story61', 'story62')">Wait, what?</h1>
 				</center>
